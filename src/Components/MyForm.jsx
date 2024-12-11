@@ -18,9 +18,17 @@ export default function MyForm() {
     const [topic, setTopic] = useState(setInitialTopic());
     const [difficulty, setDifficulty] = useState(setInitialDifficulty());
 
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        setTopic(event.target['topic-radio'].value)
+        setDifficulty(event.target['difficulty-radio'].value)
+        console.log(`Topic: ${topic}, Difficulty: ${difficulty}`)
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div id="topic-form">
                     <h3>Choose a topic</h3>
                     <label>
