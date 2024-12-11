@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 
 export default function MyForm({formSubmit, topics, difficulties}) {
 
@@ -9,7 +8,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
     function handleSubmit(event) {
         event.preventDefault()
         const selectedTopic = (event.target['topic-radio'].value)
-        const selectedDifficulty = (event.target['difficulty-radio'].value)
+        const selectedDifficulty = (event.target['difficulty-radio'].value) //TIDY THIS UP LATER
         formSubmit(selectedTopic, selectedDifficulty)
     }
 

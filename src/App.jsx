@@ -7,6 +7,7 @@ import Questions from './Components/Questions'
 const topics = ['Sport', 'Celebrities', 'Animals']
 const difficulties = ['Easy', 'Medium', 'Hard']
 let formSubmitted = false
+let homeScreen = true
 
 // Random number gen to pick initial topic and difficulty in-case user doesn't select one (Initial state)
 function setInitialTopic() {
@@ -15,7 +16,7 @@ function setInitialTopic() {
 
 function setInitialDifficulty() {
   return difficulties[Math.floor(Math.random()*difficulties.length)] // returns a random difficulty
-}
+} // THIS DOES NOT NEED TO BE HERE!!
 
 // Main App component to be exported and rendederd in main.jsx
 function App() {
@@ -37,6 +38,7 @@ function App() {
             return 27 // Default to animals to avoid errors
         }
       }
+      console.log('fetching data')
       fetch(`https://opentdb.com/api.php?amount=10&category=${categoryIndex()}&difficulty=${formResponse.difficulty.toLowerCase()}`) // Uses embedded expressions for custom api call
       .then(response => response.json()) //  Converts response to json
       .then(data => setJsonData(data)) // Sets jsonData state to the data from the API
@@ -46,19 +48,20 @@ function App() {
   // Function to handle form submission. 
   // Sets formResponse based on the results from passed onSubmit prop back from MyForm component.
   function handleFormSubmit(topic, difficulty) {
-    let formSubmitted = true
+    formSubmitted = true
+    homeScreen = false
     setFormResponse({'topic': topic, 'difficulty': difficulty})
    }
   
   return (
     <main>
       <h3>Score: 0</h3>
-      <div id="selection-screen">      
+      {homeScreen ? <div id="selection-screen">      
         <h2>Choose a topic and difficulty.</h2>  
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
-      </div>
+      </div> : null}
       <div>
-        <Questions questionData={jsonData}/>
+        {jsonData ? <Questions questionData={jsonData}/> : <p>Select and start</p>}
       </div>
     </main>
   )
