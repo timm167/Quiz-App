@@ -19,11 +19,32 @@ function setInitialDifficulty() {
 // Main App component to be exported and rendederd in main.jsx
 function App() {
   const [formResponse, setFormResponse] = useState({'topic': setInitialTopic(), 'difficulty': setInitialDifficulty()}) // initial state is a random topic and difficulty
+  const [jsonData, setJsonData] = useState(null) // initial state is null
+
+  // Fetches data from the Open Trivia DB API based on the formResponse state
+  useEffect(() => {
+    if (formResponse) {
+      const categoryIndex = () => { // Switch statement to return the relevant category index for API call based on the topic selected
+        switch (formResponse.topic) {
+          case 'Sport':
+            return 21
+          case 'Celebrities':
+            return 26
+          case 'Animals':
+            return 27
+          default:
+            return 27 // Default to animals to avoid errors
+        }
+      }
+      fetch(`https://opentdb.com/api.php?amount=10&category=${categoryIndex()}&difficulty=${formResponse.difficulty.toLowerCase()}`) // Uses embedded expressions for custom api call
+      .then(response => response.json()) //  Converts response to json
+      .then(data => setJsonData(data)) // Sets jsonData state to the data from the API
+    }
+  }, [formResponse]) // useEffect will run after formResponse state changes to avoid async issues
 
   // Function to handle form submission. 
   // Sets formResponse based on the results from passed onSubmit prop back from MyForm component.
   function handleFormSubmit(topic, difficulty) {
-    console.log('Form submitted with:', { topic, difficulty })
     setFormResponse({'topic': topic, 'difficulty': difficulty})
    }
   
@@ -40,7 +61,7 @@ function App() {
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div>
       <div>
-        <Questions/>
+        <Questions questionData={jsonData}/>
       </div>
     </main>
   )
