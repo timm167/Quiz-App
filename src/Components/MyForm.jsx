@@ -6,24 +6,14 @@ import { useState } from 'react';
 const topics = ['Sport', 'Celebrities', 'Animals']
 const difficulties = ['Easy', 'Medium', 'Hard']   
 
-function setInitialTopic() {
-    return topics[Math.floor(Math.random()*topics.length)] // returns a random topic
-}
 
-function setInitialDifficulty() {
-    return difficulties[Math.floor(Math.random()*difficulties.length)] // returns a random difficulty
-}
-
-export default function MyForm() {
-    const [topic, setTopic] = useState(setInitialTopic());
-    const [difficulty, setDifficulty] = useState(setInitialDifficulty());
-
+export default function MyForm({onSubmit}) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        setTopic(event.target['topic-radio'].value)
-        setDifficulty(event.target['difficulty-radio'].value)
-        console.log(`Topic: ${topic}, Difficulty: ${difficulty}`)
+        const topic = (event.target['topic-radio'].value)
+        const difficulty = (event.target['difficulty-radio'].value)
+        onSubmit({topic, difficulty})
     }
 
     return (
