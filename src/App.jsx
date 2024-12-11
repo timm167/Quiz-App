@@ -4,23 +4,15 @@ import MyForm from './Components/MyForm'
 import Questions from './Components/Questions'
 
 // Array of topics and difficulties to use here and pass to MyForm component
-const topics = ['Sport', 'Celebrities', 'Animals']
-const difficulties = ['Easy', 'Medium', 'Hard']
+export const topics = ['Sport', 'Celebrities', 'Animals']
+export const difficulties = ['Easy', 'Medium', 'Hard']
+
 let formSubmitted = false
 let homeScreen = true
 
-// Random number gen to pick initial topic and difficulty in-case user doesn't select one (Initial state)
-function setInitialTopic() {
-  return topics[Math.floor(Math.random()*topics.length)] // returns a random topic
-}
-
-function setInitialDifficulty() {
-  return difficulties[Math.floor(Math.random()*difficulties.length)] // returns a random difficulty
-} // THIS DOES NOT NEED TO BE HERE!!
-
 // Main App component to be exported and rendederd in main.jsx
 function App() {
-  const [formResponse, setFormResponse] = useState({'topic': setInitialTopic(), 'difficulty': setInitialDifficulty()}) // initial state is a random topic and difficulty
+  const [formResponse, setFormResponse] = useState() // initial state is a random topic and difficulty
   const [jsonData, setJsonData] = useState(null) // initial state is null
 
   // Fetches data from the Open Trivia DB API based on the formResponse state
