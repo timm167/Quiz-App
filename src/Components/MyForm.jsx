@@ -38,10 +38,18 @@ export default function MyForm() {
                 </div>
                 <div id="difficulty-form">
                     <h3>Choose a difficulty</h3>
-                    <label>
-                        <input type="radio"/>
-                            Easy
-                    </label>
+                        <label>
+                            <input type="radio" name="difficulty-radio" value={difficulties[0]}/>
+                                {difficulties[0]}
+                        </label>
+                        <label>
+                            <input type="radio" name="difficulty-radio" value={difficulties[1]}/>
+                                {difficulties[1]}
+                        </label>
+                        <label>
+                            <input type="radio" name="difficulty-radio" value={difficulties[2]}/>
+                                {difficulties[2]}
+                        </label>
                 </div>
                 <button type="submit">Start Quiz</button>
             </form>
