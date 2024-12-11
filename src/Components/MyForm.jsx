@@ -1,25 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
 
-// Arrays of difficulties and topics 
+export default function MyForm({formSubmit, topics, difficulties}) {
 
-const topics = ['Sport', 'Celebrities', 'Animals']
-const difficulties = ['Easy', 'Medium', 'Hard']   
-
-
-export default function MyForm({onSubmit}) {
+    // Checks values of topics and difficulties passed in by event handler
+    // uses formSubmit prop to pass values to App component
 
     function handleSubmit(event) {
         event.preventDefault()
         const topic = (event.target['topic-radio'].value)
         const difficulty = (event.target['difficulty-radio'].value)
-        onSubmit({topic, difficulty})
+        formSubmit({topic, difficulty})
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <div id="topic-form">
+                    {/* Form section for user to select a topic using labeled radio inputs */}
                     <h3>Choose a topic</h3>
                     <label>
                         <input type="radio" name="topic-radio" value={topics[0]}/>
@@ -35,6 +33,7 @@ export default function MyForm({onSubmit}) {
                     </label>
                 </div>
                 <div id="difficulty-form">
+                    {/* Form section for user to select a difficulty using labeled radio inputs */}
                     <h3>Choose a difficulty</h3>
                         <label>
                             <input type="radio" name="difficulty-radio" value={difficulties[0]}/>
