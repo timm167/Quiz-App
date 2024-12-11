@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 // Arrays of difficulties and topics 
 
-const topics = [Sport, Celebrities, Animals]
-const difficulties = [Easy, Medium, Hard]   
+const topics = ['Sport', 'Celebrities', 'Animals']
+const difficulties = ['Easy', 'Medium', 'Hard']   
 
 function setInitialTopic() {
     return topics[Math.floor(Math.random()*topics.length)] // returns a random topic
@@ -22,19 +22,28 @@ export default function MyForm() {
         <div>
             <form>
                 <div id="topic-form">
-                    <label for="">
-                        <input type="radio">
-                            Sport
-                        </input>
+                    <h3>Choose a topic</h3>
+                    <label>
+                        <input type="radio" name="topic-radio" value={topics[0]}/>
+                            {topics[0]}
+                    </label>
+                    <label>
+                        <input type="radio" name="topic-radio" value={topics[1]}/>
+                            {topics[1]}
+                    </label>
+                    <label>
+                        <input type="radio" name="topic-radio" value={topics[2]}/>
+                            {topics[2]}
                     </label>
                 </div>
                 <div id="difficulty-form">
-                    <label for="">
-                        <input type="radio">
+                    <h3>Choose a difficulty</h3>
+                    <label>
+                        <input type="radio"/>
                             Easy
-                        </input>
                     </label>
                 </div>
+                <button type="submit">Start Quiz</button>
             </form>
         </div>
     )
