@@ -8,9 +8,9 @@ export default function MyForm({formSubmit, topics, difficulties}) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const topic = (event.target['topic-radio'].value)
-        const difficulty = (event.target['difficulty-radio'].value)
-        formSubmit({topic, difficulty})
+        const selectedTopic = (event.target['topic-radio'].value)
+        const selectedDifficulty = (event.target['difficulty-radio'].value)
+        formSubmit(selectedTopic, selectedDifficulty)
     }
 
     return (

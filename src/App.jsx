@@ -5,7 +5,8 @@ import Questions from './Components/Questions'
 
 // Array of topics and difficulties to use here and pass to MyForm component
 const topics = ['Sport', 'Celebrities', 'Animals']
-const difficulties = ['Easy', 'Medium', 'Hard']   
+const difficulties = ['Easy', 'Medium', 'Hard']
+let formSubmitted = false
 
 // Random number gen to pick initial topic and difficulty in-case user doesn't select one (Initial state)
 function setInitialTopic() {
@@ -23,7 +24,7 @@ function App() {
 
   // Fetches data from the Open Trivia DB API based on the formResponse state
   useEffect(() => {
-    if (formResponse) {
+    if (formResponse && formSubmitted) {
       const categoryIndex = () => { // Switch statement to return the relevant category index for API call based on the topic selected
         switch (formResponse.topic) {
           case 'Sport':
@@ -45,14 +46,10 @@ function App() {
   // Function to handle form submission. 
   // Sets formResponse based on the results from passed onSubmit prop back from MyForm component.
   function handleFormSubmit(topic, difficulty) {
+    let formSubmitted = true
     setFormResponse({'topic': topic, 'difficulty': difficulty})
    }
   
-  // Commented out debugging code
-  // useEffect(() => {
-  // formResponse ? console.log(formResponse) : console.log('No form response yet')
-  // }, [formResponse])
-
   return (
     <main>
       <h3>Score: 0</h3>
