@@ -7,6 +7,18 @@ export default function Questions({questionData}){
     const options = [...question.incorrect_answers, question.correct_answer] // creates an array of all possible answers
     options.sort(() => Math.random() - 0.5); // shuffles the array of answers
 
+    function handleNextQuestion() {
+        if (currentQuestion < questionData.results.length - 1){
+            setCurrentQuestion(currentQuestion + 1);
+        }
+    }
+
+    function handlePreviousQuestion() {
+        if (currentQuestion > 0){
+            setCurrentQuestion(currentQuestion - 1);
+        }
+    }
+
     return (
         <div id="question-container">
             <h2>{question.question}</h2>
@@ -18,14 +30,14 @@ export default function Questions({questionData}){
                     </label>
                 ))}
             </form>
-            {/* <div>
+            <div>
                 <button onClick={handlePreviousQuestion}>
                     Previous
                 </button>
                 <button onClick={handleNextQuestion}>
                     Next
                 </button>
-            </div> */}
+            </div>
         </div>
     );
 };
