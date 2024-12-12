@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export default function Questions({questionData}){
+export default function Questions({questionData, quizHandler}){
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
 
@@ -8,12 +8,14 @@ export default function Questions({questionData}){
     function handleNextQuestion() {
         if (currentQuestion < questionData.length){
             setCurrentQuestion(currentQuestion + 1);
+            quizHandler(question, selectedAnswer);
         }
     }
 
     // Navigates to previous question
     function handlePreviousQuestion() {
         if (currentQuestion > 1){
+            quizHandler(question, selectedAnswer);
             setCurrentQuestion(currentQuestion - 1);
         }
     }
