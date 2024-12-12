@@ -6,7 +6,8 @@ export default function createQuizData(jsonData){
             qNo: index + 1,
             question: question.question,
             options: shuffledOptions,
-            correctAnswer: question.correct_answer
+            correctAnswer: question.correct_answer,
+            selectedAnswer: ''
         }
     })
     console.log(questions)

@@ -7,15 +7,19 @@ export default function Questions({questionData, quizHandler}){
     // Navigates to next question
     function handleNextQuestion() {
         if (currentQuestion < questionData.length){
+            question.selectedAnswer = selectedAnswer;
+            quizHandler(question);
+            setSelectedAnswer('');
             setCurrentQuestion(currentQuestion + 1);
-            quizHandler(question, selectedAnswer);
         }
     }
 
     // Navigates to previous question
     function handlePreviousQuestion() {
         if (currentQuestion > 1){
-            quizHandler(question, selectedAnswer);
+            question.selectedAnswer = selectedAnswer;
+            quizHandler(question);
+            setSelectedAnswer('');
             setCurrentQuestion(currentQuestion - 1);
         }
     }
