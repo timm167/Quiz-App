@@ -1,8 +1,16 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default function Questions({questionData, quizHandler}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
+
+    // gets the question by qNo based on currentQuestion state
+    const question = questionData.find(question => question.qNo === currentQuestion);
+
+    // Updates selected answer when question changes
+    useEffect(() => {
+        setSelectedAnswer(question.selectedAnswer);
+    },[currentQuestion, question])
 
     // Navigates to next question
     function handleNextQuestion() {
@@ -12,13 +20,11 @@ export default function Questions({questionData, quizHandler}){ // CREATE A COPY
         else if (currentQuestion < questionData.length){ // Checks if there are more questions
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            setSelectedAnswer(''); // Resets selected answer
             setCurrentQuestion(currentQuestion + 1); // Next question
         }
         else {
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            setSelectedAnswer(''); // Resets selected answer
             console.log('FINISHED')
         }
     }
@@ -28,18 +34,9 @@ export default function Questions({questionData, quizHandler}){ // CREATE A COPY
         if (currentQuestion > 1){ // Checks if there are previous questions
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            setSelectedAnswer(''); 
             setCurrentQuestion(currentQuestion - 1); // Previous question
         }
     }
-
-    // gets the question by qNo based on currentQuestion state
-    const question = questionData.find(question => question.qNo === currentQuestion);
-
-    // qNo: index + 1,
-    // question: question.question,
-    // options: shuffledOptions,
-    // correctAnswer: question.correct_answer
 
     return (
         <div id="question-container">
