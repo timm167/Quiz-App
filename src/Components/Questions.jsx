@@ -1,40 +1,36 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
-export default function Questions({questionData}){
+export default function Questions({questionData}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
 
+    // Function to handle quiz responses
     function quizHandler(question) {
         questionData[question.qNo - 1] = question
     }
 
     // Navigates to next question
     function handleNextQuestion() {
-        if (currentQuestion < questionData.length){
-            question.selectedAnswer = selectedAnswer;
+        if (currentQuestion < questionData.length){ // Checks if there are more questions
+            question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            setSelectedAnswer('');
-            setCurrentQuestion(currentQuestion + 1);
+            setSelectedAnswer(''); // Resets selected answer
+            setCurrentQuestion(currentQuestion + 1); // Next question
         }
     }
 
     // Navigates to previous question
-    function handlePreviousQuestion() {
-        if (currentQuestion > 1){
-            question.selectedAnswer = selectedAnswer;
+    function handlePreviousQuestion() { 
+        if (currentQuestion > 1){ // Checks if there are previous questions
+            question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            setSelectedAnswer('');
-            setCurrentQuestion(currentQuestion - 1);
+            setSelectedAnswer(''); 
+            setCurrentQuestion(currentQuestion - 1); // Previous question
         }
     }
 
+    // gets the question by qNo based on currentQuestion state
     const question = questionData.find(question => question.qNo === currentQuestion);
-
-    if (!question) {
-        console.error(`Question with qNo ${currentQuestion} not found`);
-        return <p>Loading question...</p>;
-    }
-
 
     // qNo: index + 1,
     // question: question.question,
@@ -43,11 +39,16 @@ export default function Questions({questionData}){
 
     return (
         <div id="question-container">
-            <h2>{question.question}</h2>
+            <h2>{question.qNo + '. ' + question.question}</h2>
             <form>
                 {question.options.map((option, i) => (
                     <label key={i}>
-                        <input type="radio" name="question" value={option} onChange={() => {setSelectedAnswer(option)}}/>
+                        <input 
+                            type="radio" 
+                            name="question" 
+                            value={option} 
+                            checked={question.selectedAnswer === option || selectedAnswer === option}
+                            onChange={() => {setSelectedAnswer(option)}}/>
                         {option}
                     </label>
                 ))}
@@ -61,6 +62,7 @@ export default function Questions({questionData}){
                     Next
                 </button>
             </div>
+
         </div>
     );
 };
