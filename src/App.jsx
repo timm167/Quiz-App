@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import MyForm from './Components/MyForm'
 import Questions from './Components/Questions'
+import createQuizData from './Quiz'
 
 // Array of topics and difficulties to use here and pass to MyForm component
 export const topics = ['Sport', 'Celebrities', 'Animals']
@@ -53,7 +54,7 @@ function App() {
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={jsonData}/> : <p>Select and start</p>}
+        {jsonData ? <Questions questionData={createQuizData(jsonData)}/> : <p>Select and start</p>}
       </div>
     </main>
   )
