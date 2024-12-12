@@ -54,7 +54,8 @@ function App() {
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={createQuizData(jsonData)}/> : <p>Select and start</p>}
+        {jsonData ? JSON.stringify(createQuizData(jsonData)) : 'nothing'}
+        {/* {jsonData ? <Questions questionData={createQuizData(jsonData)}/> : <p>Select and start</p>} */}
       </div>
     </main>
   )
