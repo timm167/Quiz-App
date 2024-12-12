@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react';
 
-export default function Questions({questionData, quizHandler}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
+export default function Questions({questionData, quizHandler, finishQuiz}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
+    const [alertShown, setAlertShown] = useState(false); // state to track if alert has been shown
 
     // gets the question by qNo based on currentQuestion state
     const question = questionData.find(question => question.qNo === currentQuestion);
@@ -14,18 +15,22 @@ export default function Questions({questionData, quizHandler}){ // CREATE A COPY
 
     // Navigates to next question
     function handleNextQuestion() {
-        if (selectedAnswer === ''){ // Checks if an answer has been selected
-            alert('Please select an answer');
-        } 
-        else if (currentQuestion < questionData.length){ // Checks if there are more questions
+        // if (selectedAnswer === '' && !alertShown){ // Checks if an answer has been selected
+        //     alert('Please select an answer');
+        //     setAlertShown(true);
+        // } 
+        if (currentQuestion < questionData.length){ // Checks if there are more questions
             question.selectedAnswer = selectedAnswer; // Saves selected answer
+            console.log(question)
             quizHandler(question);
             setCurrentQuestion(currentQuestion + 1); // Next question
+            setAlertShown(false);
         }
         else {
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
-            console.log('FINISHED')
+            setAlertShown(false);
+            finishQuiz();
         }
     }
 

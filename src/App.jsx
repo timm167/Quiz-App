@@ -3,6 +3,7 @@ import './App.css'
 import MyForm from './Components/MyForm'
 import Questions from './Components/Questions'
 import createQuizData from './utils/Quiz'
+import EndScreen from './Components/EndScreen'
 
 // Array of topics and difficulties to use here and pass to MyForm component
 export const topics = ['Sport', 'Celebrities', 'Animals']
@@ -10,6 +11,7 @@ export const difficulties = ['Easy', 'Medium', 'Hard']
 
 let formSubmitted = false
 let homeScreen = true
+let endScreen = false
 
 // Main App component to be exported and rendederd in main.jsx
 function App() {
@@ -46,25 +48,33 @@ function App() {
     setFormResponse({'topic': topic, 'difficulty': difficulty})
    }
 
-    // Function to handle quiz responses
-    function quizHandler(question) {
-      setJsonData((prevData) =>
-          prevData.map((q, index) =>
-              index === question.qNo - 1 ? question : q
-          )
-      );
-    }
-  
+  // Function to handle quiz responses
+  function quizHandler(question) {
+    setJsonData((prevData) =>
+        prevData.map((q, index) =>
+            index === question.qNo - 1 ? question : q
+        )
+    );
+  }
+
+  function handleFinishQuiz() {
+    const displayData = jsonData
+    endScreen = true
+    console.log(displayData)
+  }
+
   
   return (
     <main>
-      <h3>Score: 0</h3>
       {homeScreen ? <div id="selection-screen">      
         <h2>Choose a topic and difficulty.</h2>  
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={jsonData} quizHandler={quizHandler}/> : <p>Select and start</p>}
+        {jsonData ? <Questions questionData={jsonData} quizHandler={quizHandler} finishQuiz={handleFinishQuiz}/> : <p>Select and start</p>}
+      </div>
+      <div>
+        {endScreen ? <EndScreen/> : null}
       </div>
     </main>
   )
