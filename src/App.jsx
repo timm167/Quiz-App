@@ -34,7 +34,7 @@ function App() {
       console.log('fetching data')
       fetch(`https://opentdb.com/api.php?amount=10&category=${categoryIndex()}&difficulty=${formResponse.difficulty.toLowerCase()}`) // Uses embedded expressions for custom api call
       .then(response => response.json()) //  Converts response to json
-      .then(data => setJsonData(data)) // Sets jsonData state to the data from the API
+      .then (data => setJsonData(createQuizData(data)))
     }
   }, [formResponse]) // useEffect will run after formResponse state changes to avoid async issues
 
@@ -45,6 +45,16 @@ function App() {
     homeScreen = false
     setFormResponse({'topic': topic, 'difficulty': difficulty})
    }
+
+    // Function to handle quiz responses
+    function quizHandler(question) {
+      setJsonData((prevData) =>
+          prevData.map((q, index) =>
+              index === question.qNo - 1 ? question : q
+          )
+      );
+    }
+  
   
   return (
     <main>
@@ -54,7 +64,7 @@ function App() {
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={createQuizData(jsonData)}/> : <p>Select and start</p>}
+        {jsonData ? <Questions questionData={jsonData} quizHandler={quizHandler}/> : <p>Select and start</p>}
       </div>
     </main>
   )

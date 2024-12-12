@@ -1,13 +1,8 @@
 import {useState} from 'react';
 
-export default function Questions({questionData}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
+export default function Questions({questionData, quizHandler}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
-
-    // Function to handle quiz responses
-    function quizHandler(question) {
-        questionData[question.qNo - 1] = question
-    }
 
     // Navigates to next question
     function handleNextQuestion() {
@@ -24,7 +19,7 @@ export default function Questions({questionData}){ // CREATE A COPY OF THE QUEST
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
             setSelectedAnswer(''); // Resets selected answer
-            console.log(FINISHED)
+            console.log('FINISHED')
         }
     }
 
