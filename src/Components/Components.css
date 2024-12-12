@@ -1,0 +1,19 @@
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}   
+
+.right.selected {
+    color: green;
+}
+
+.wrong.selected {
+    color: rgb(228, 24, 88);
+}
+
+.right.not-selected {
+    color: lightgreen;
+}

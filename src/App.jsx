@@ -56,25 +56,18 @@ function App() {
         )
     );
   }
-
-  function handleFinishQuiz() {
-    const displayData = jsonData
-    endScreen = true
-    console.log(displayData)
-  }
-
   
   return (
     <main>
-      {homeScreen ? <div id="selection-screen">      
+      {homeScreen ? <div id="selection-screen">
         <h2>Choose a topic and difficulty.</h2>  
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={jsonData} quizHandler={quizHandler} finishQuiz={handleFinishQuiz}/> : <p>Select and start</p>}
+        {(jsonData && !endScreen) ? <Questions questionData={jsonData} quizHandler={quizHandler} finishQuiz={() => endScreen = true}/> : null}
       </div>
       <div>
-        {endScreen ? <EndScreen displayData={displayData}/> : null}
+        {endScreen ? <EndScreen displayData={jsonData}/> : null}
       </div>
     </main>
   )
