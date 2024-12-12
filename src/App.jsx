@@ -3,7 +3,6 @@ import './App.css'
 import MyForm from './Components/MyForm'
 import Questions from './Components/Questions'
 import createQuizData from './utils/Quiz'
-import quizHandler from './utils/Results'
 
 // Array of topics and difficulties to use here and pass to MyForm component
 export const topics = ['Sport', 'Celebrities', 'Animals']
@@ -55,7 +54,7 @@ function App() {
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>
-        {jsonData ? <Questions questionData={createQuizData(jsonData)} quizHandler={quizHandler}/> : <p>Select and start</p>}
+        {jsonData ? <Questions questionData={createQuizData(jsonData)}/> : <p>Select and start</p>}
       </div>
     </main>
   )

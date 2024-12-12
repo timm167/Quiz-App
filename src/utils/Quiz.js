@@ -10,7 +10,6 @@ export default function createQuizData(jsonData){
             selectedAnswer: ''
         }
     })
-    console.log(questions)
     return questions
 }
 

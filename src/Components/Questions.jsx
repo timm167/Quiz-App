@@ -1,8 +1,12 @@
 import {useEffect, useState} from 'react';
 
-export default function Questions({questionData, quizHandler}){
+export default function Questions({questionData}){
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
+
+    function quizHandler(question) {
+        questionData[question.qNo - 1] = question
+    }
 
     // Navigates to next question
     function handleNextQuestion() {
@@ -25,6 +29,12 @@ export default function Questions({questionData, quizHandler}){
     }
 
     const question = questionData.find(question => question.qNo === currentQuestion);
+
+    if (!question) {
+        console.error(`Question with qNo ${currentQuestion} not found`);
+        return <p>Loading question...</p>;
+    }
+
 
     // qNo: index + 1,
     // question: question.question,
