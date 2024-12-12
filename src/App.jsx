@@ -74,7 +74,7 @@ function App() {
         {jsonData ? <Questions questionData={jsonData} quizHandler={quizHandler} finishQuiz={handleFinishQuiz}/> : <p>Select and start</p>}
       </div>
       <div>
-        {endScreen ? <EndScreen/> : null}
+        {endScreen ? <EndScreen displayData={displayData}/> : null}
       </div>
     </main>
   )
