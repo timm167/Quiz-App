@@ -11,11 +11,20 @@ export default function Questions({questionData}){ // CREATE A COPY OF THE QUEST
 
     // Navigates to next question
     function handleNextQuestion() {
-        if (currentQuestion < questionData.length){ // Checks if there are more questions
+        if (selectedAnswer === ''){ // Checks if an answer has been selected
+            alert('Please select an answer');
+        } 
+        else if (currentQuestion < questionData.length){ // Checks if there are more questions
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
             setSelectedAnswer(''); // Resets selected answer
             setCurrentQuestion(currentQuestion + 1); // Next question
+        }
+        else {
+            question.selectedAnswer = selectedAnswer; // Saves selected answer
+            quizHandler(question);
+            setSelectedAnswer(''); // Resets selected answer
+            console.log(FINISHED)
         }
     }
 
@@ -59,10 +68,9 @@ export default function Questions({questionData}){ // CREATE A COPY OF THE QUEST
                     Previous
                 </button>
                 <button onClick={handleNextQuestion}>
-                    Next
+                    {question.qNo === 10 ? 'Finish' : 'Next'}
                 </button>
             </div>
-
         </div>
     );
 };
