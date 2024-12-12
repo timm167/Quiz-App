@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import './Components.css'
 
 export default function Questions({questionData, quizHandler, finishQuiz}){ // CREATE A COPY OF THE QUESTION DATA IN FUTURE
     const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
@@ -44,9 +45,9 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
     }
 
     return (
-        <div id="question-container">
+        <div className="question-container">
             <h2>{question.qNo + '. ' + question.question}</h2>
-            <form>
+            <form className='question-form'>
                 {question.options.map((option, i) => (
                     <label key={i}>
                         <input 
@@ -60,11 +61,11 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
                 ))}
             </form>
             <h2>{selectedAnswer}</h2>
-            <div>
-                <button onClick={handlePreviousQuestion}>
+            <div className='nav-container'>
+                <button className="nav-button" onClick={handlePreviousQuestion}>
                     Previous
                 </button>
-                <button onClick={handleNextQuestion}>
+                <button className="nav-button" onClick={handleNextQuestion}>
                     {question.qNo === 10 ? 'Finish' : 'Next'}
                 </button>
             </div>

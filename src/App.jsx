@@ -9,18 +9,15 @@ import EndScreen from './Components/EndScreen'
 export const topics = ['Sport', 'Celebrities', 'Animals']
 export const difficulties = ['Easy', 'Medium', 'Hard']
 
-let formSubmitted = false
-let homeScreen = true
-let endScreen = false
-
 // Main App component to be exported and rendederd in main.jsx
 function App() {
+  const [currentScreen, setCurrentScreen] = useState('home') // initial state is home screen
   const [formResponse, setFormResponse] = useState() // initial state is a random topic and difficulty
   const [jsonData, setJsonData] = useState(null) // initial state is null
 
   // Fetches data from the Open Trivia DB API based on the formResponse state
   useEffect(() => {
-    if (formResponse && formSubmitted) {
+    if (formResponse && currentScreen === 'questions') { 
       const categoryIndex = () => { // Switch statement to return the relevant category index for API call based on the topic selected
         switch (formResponse.topic) {
           case 'Sport':
@@ -43,9 +40,8 @@ function App() {
   // Function to handle form submission. 
   // Sets formResponse based on the results from passed onSubmit prop back from MyForm component.
   function handleFormSubmit(topic, difficulty) {
-    formSubmitted = true
-    homeScreen = false
     setFormResponse({'topic': topic, 'difficulty': difficulty})
+    setCurrentScreen('questions')
    }
 
   // Function to handle quiz responses
@@ -59,17 +55,27 @@ function App() {
   
   return (
     <main>
-      {homeScreen ? <div id="selection-screen">
-        <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
-      </div> : null}
-      <div>
-        {(jsonData && !endScreen) ? <Questions questionData={jsonData} quizHandler={quizHandler} finishQuiz={() => endScreen = true}/> : null}
-      </div>
-      <div>
-        {endScreen ? <EndScreen displayData={jsonData}/> : null}
-      </div>
+      {currentScreen === 'home' && (
+        <div id="selection-screen">
+          <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties} />
+        </div>
+      )}
+
+      {currentScreen === 'questions' && jsonData && (
+        <div>
+          <Questions
+            questionData={jsonData}
+            quizHandler={quizHandler}
+            finishQuiz={() => setCurrentScreen('end')}
+          />
+        </div>
+      )}
+
+      {currentScreen === 'end' && jsonData && (
+        <EndScreen displayData={jsonData} />
+      )}
     </main>
-  )
+  );
 }
 
 export default App

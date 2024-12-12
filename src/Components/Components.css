@@ -56,7 +56,36 @@
     width: 40%;
 }
 
+/* CSS for Questions.jsx */
+.question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
 
+.question-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+    width: 60%;
+
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.nav-container > button {
+    width: 40%;
+    height: 60px;
+}
 
 /* CSS for Review.jsx */
 .correct {
