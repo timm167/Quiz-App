@@ -1,28 +1,35 @@
 import {useEffect, useState} from 'react';
 
 export default function Questions({questionData}){
-    const [currentQuestion, setCurrentQuestion] = useState(0); // state for displaying current question
+    const [currentQuestion, setCurrentQuestion] = useState(1); // state for displaying current question
     const [selectedAnswer, setSelectedAnswer] = useState(''); // state for storing selected answer
 
     // Navigates to next question
     function handleNextQuestion() {
-        if (currentQuestion < questionData.results.length - 1){
+        if (currentQuestion < questionData.length){
             setCurrentQuestion(currentQuestion + 1);
         }
     }
 
     // Navigates to previous question
     function handlePreviousQuestion() {
-        if (currentQuestion > 0){
+        if (currentQuestion > 1){
             setCurrentQuestion(currentQuestion - 1);
         }
     }
+
+    const question = questionData.find(question => question.qNo === currentQuestion);
+
+    // qNo: index + 1,
+    // question: question.question,
+    // options: shuffledOptions,
+    // correctAnswer: question.correct_answer
 
     return (
         <div id="question-container">
             <h2>{question.question}</h2>
             <form>
-                {options.map((option, i) => (
+                {question.options.map((option, i) => (
                     <label key={i}>
                         <input type="radio" name="question" value={option} onChange={() => {setSelectedAnswer(option)}}/>
                         {option}

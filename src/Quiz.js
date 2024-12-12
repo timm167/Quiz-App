@@ -12,3 +12,4 @@ export default function createQuizData(jsonData){
     console.log(questions)
     return questions
 }
+
