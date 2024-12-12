@@ -10,7 +10,7 @@
     margin: 10px;
     color: #fff; 
     border: none;
-    border-radius: 8px; 
+    border-radius: 12px; 
     padding: 10px 20px; 
     font-size: 16px; 
     font-weight: 600; 
@@ -68,11 +68,10 @@
 .question-form {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px;
     margin: 10px;
-    width: 60%;
-
+    width: 80%;
 }
 
 .nav-container {
@@ -85,6 +84,49 @@
 .nav-container > button {
     width: 40%;
     height: 60px;
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #000000;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 15%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    align-content: center;
+    justify-content: center;
+}
+
+.true-false {
+    padding: 15px 25px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+/* Hover state for the button */
+.custom-radio:hover {
+    background-color: #e6e6e6;
+    border-color: #888;
+    transform: translateY(-1px); 
+}
+
+/* Active state when the radio is checked */
+.custom-radio:has(input[type="radio"]:checked)  {
+    background-color: #6A5ACD; /* Slate Blue */
+    border-color: #6A5ACD;
+    color: white;
+    transform: translateY(1px); 
+    box-shadow: none;
 }
 
 /* CSS for Review.jsx */

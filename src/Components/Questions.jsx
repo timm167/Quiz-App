@@ -49,14 +49,15 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
             <h2>{question.qNo + '. ' + question.question}</h2>
             <form className='question-form'>
                 {question.options.map((option, i) => (
-                    <label key={i}>
+                    <label key={i}  
+                    className={`${question.options.length === 2 && 'true-false'} custom-radio`}> 
                         <input 
                             type="radio" 
                             name="question" 
                             value={option} 
                             checked={question.selectedAnswer === option || selectedAnswer === option}
                             onChange={() => {setSelectedAnswer(option)}}/>
-                        {option}
+                        <span>{option}</span>
                     </label>
                 ))}
             </form>
