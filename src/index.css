@@ -1,0 +1,28 @@
+html {
+    background-color: antiquewhite;
+    align-items: center;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+}
+
+img {
+    width: 100px;
+    height: auto;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}

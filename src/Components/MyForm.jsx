@@ -1,5 +1,6 @@
 import React from 'react';
 import {topics, difficulties} from '../App'
+import './Components.css'
 
 // generates a random topic if none is selected
 function backupTopic() {
@@ -24,9 +25,9 @@ export default function MyForm({formSubmit, topics, difficulties}) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div id="topic-form">
+        <div className='container'>
+            <form className='start-container'onSubmit={handleSubmit}>
+                <div className="start-form">
                     {/* Form section for user to select a topic using labeled radio inputs */}
                     <h3>Choose a topic</h3>
                     <label>
@@ -42,7 +43,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
                             {topics[2]}
                     </label>
                 </div>
-                <div id="difficulty-form">
+                <div className="start-form">
                     {/* Form section for user to select a difficulty using labeled radio inputs */}
                     <h3>Choose a difficulty</h3>
                         <label>
@@ -58,7 +59,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
                                 {difficulties[2]}
                         </label>
                 </div>
-                <button type="submit">Start Quiz</button>
+                <button className='nav-button start-game' type="submit">Start Quiz</button>
             </form>
         </div>
     )

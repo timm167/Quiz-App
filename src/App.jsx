@@ -60,7 +60,6 @@ function App() {
   return (
     <main>
       {homeScreen ? <div id="selection-screen">
-        <h2>Choose a topic and difficulty.</h2>  
         <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties}/>
       </div> : null}
       <div>

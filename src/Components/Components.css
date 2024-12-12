@@ -1,3 +1,64 @@
+/* all components CSS */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav Button */
+.nav-button {
+    background-color:#46827a; 
+    margin: 10px;
+    color: #fff; 
+    border: none;
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+    background-color: #5d9a91; 
+    transform: translateY(-1px); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+.nav-button:active {
+    background-color: #356863; 
+    transform: translateY(1px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for MyForm.jsx */
+
+.start-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: lightgray;
+    width: 80%;
+    margin: 10px;
+}
+
+.start-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.start-game {
+    width: 40%;
+}
+
+
+
+/* CSS for Review.jsx */
 .correct {
     color: green;
 }
