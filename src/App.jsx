@@ -35,7 +35,7 @@ function App() {
       .then(response => response.json()) //  Converts response to json
       .then (data => setJsonData(createQuizData(data)))
     }
-  }, [formResponse]) // useEffect will run after formResponse state changes to avoid async issues
+  }, [formResponse, currentScreen]) // useEffect will run after formResponse and/or currentScreen state changes to avoid async issues
 
   // Function to handle form submission. 
   // Sets formResponse based on the results from passed onSubmit prop back from MyForm component.
@@ -52,6 +52,8 @@ function App() {
         )
     );
   }
+
+  // Main return statement to render the app
   
   return (
     <main>
@@ -60,7 +62,6 @@ function App() {
           <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties} />
         </div>
       )}
-
       {currentScreen === 'questions' && jsonData && (
         <div>
           <Questions
