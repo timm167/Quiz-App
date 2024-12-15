@@ -16,10 +16,10 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
 
     // Navigates to next question
     function handleNextQuestion() {
-        // if (selectedAnswer === '' && !alertShown){ // Checks if an answer has been selected
-        //     alert('Please select an answer');
-        //     setAlertShown(true);
-        // } 
+        if (selectedAnswer === '' && !alertShown){ // Checks if an answer has been selected
+            setAlertShown(true);
+            return;
+        } 
         if (currentQuestion < questionData.length){ // Checks if there are more questions
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             console.log(question)
@@ -41,6 +41,7 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
             question.selectedAnswer = selectedAnswer; // Saves selected answer
             quizHandler(question);
             setCurrentQuestion(currentQuestion - 1); // Previous question
+            setAlertShown(false);
         }
     }
 
@@ -69,6 +70,9 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
                 <button className="nav-button" onClick={handleNextQuestion}>
                     {question.qNo === 10 ? 'Finish' : 'Next'}
                 </button>
+            </div>
+            <div>
+                {alertShown && <p>Please select an answer.</p>}
             </div>
         </div>
     );
