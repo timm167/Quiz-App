@@ -49,20 +49,22 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
         <div className="question-container">
             <h2 className='align-text'>{question.qNo + '. ' + question.question}</h2>
             <form className='question-form'>
+                {/* uses .map to display each radio  */}
                 {question.options.map((option, i) => (
                     <label key={i}  
-                    className={`${question.options.length === 2 && 'true-false'} custom-radio`}> 
+                    className={`${question.options.length === 2 && 'true-false'} custom-radio`}> {/* Adds class for true/false questions to make buttons larger*/}
                         <input 
                             type="radio" 
                             name="question" 
                             value={option} 
-                            checked={question.selectedAnswer === option || selectedAnswer === option}
+                            checked={question.selectedAnswer === option || selectedAnswer === option} /*Checks box when option selected*/
                             onChange={() => {setSelectedAnswer(option)}}/>
                         <span>{option}</span>
                     </label>
                 ))}
             </form>
             <h2>{selectedAnswer}</h2>
+            {/* Adds navigation buttons that call functions above */}
             <div className='nav-container'>
                 <button className="nav-button" onClick={handlePreviousQuestion}>
                     Previous
@@ -71,6 +73,7 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
                     {question.qNo === 10 ? 'Finish' : 'Next'}
                 </button>
             </div>
+            {/* Provides one time reminder to select answer */}
             <div>
                 {alertShown && <p>Please select an answer.</p>}
             </div>

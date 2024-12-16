@@ -21,7 +21,20 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    width: 75%;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    background-color: rgb(248, 221, 186);
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.inner-instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: 70%;
     align-self: center;
     text-align: center;
 }
@@ -35,17 +48,20 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     align-self: center;
     text-align: center;
-    background-color: rgb(248, 221, 186)
+    background-color: rgb(248, 221, 186);
+    border: 1px solid #ccc;
+    height: 200px;
 }
 
 .form-result-displayer-text {
     margin: 15px;
 }
 
-/* Nav Button */
+/* Nav Button used throughout*/ 
 .nav-button {
     background-color:#46827a; 
     margin: 10px;
@@ -68,15 +84,22 @@ main {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-
 .nav-button:active {
     background-color: #356863; 
     transform: translateY(1px); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
 /* CSS for MyForm.jsx */
 
+/* Creating custom radio's for selecting topic and difficulty */
 .choose {
     width: 27%;
     margin-right: 0px;
@@ -121,14 +144,16 @@ main {
     box-shadow: none;
 }
 
-
+/* CSS for the form containers */
 .start-form {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-    background-color: lightgray;
+    background-color: rgb(248, 221, 186);
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px #46827a48;
     width: 80%;
     margin: 10px;
 }
@@ -163,13 +188,7 @@ main {
     width: 80%;
 }
 
-.nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
-}
-
+/* More custom radio's */
 .custom-radio input[type="radio"] {
     display: none;
 }
@@ -189,6 +208,7 @@ main {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     align-content: center;
     justify-content: center;
+    align-items: center;
 }
 
 .true-false {
@@ -197,7 +217,6 @@ main {
     width: 30%;
 }
 
-/* Hover state for the button */
 .custom-radio:hover {
     background-color: #e6e6e6;
     border-color: #888;
@@ -206,12 +225,13 @@ main {
 
 /* Active state when the radio is checked */
 .custom-radio:has(input[type="radio"]:checked)  {
-    background-color: #6A5ACD; /* Slate Blue */
+    background-color: #6A5ACD; 
     border-color: #6A5ACD;
     color: white;
     transform: translateY(1px); 
     box-shadow: none;
 }
+
 
 /* CSS for EndScreen */
 .end-screen {
@@ -219,11 +239,6 @@ main {
     flex-direction: column;
     align-items: center;
     margin: 10px;
-}
-
-.end-buttons {
-    width: 90%;
-    margin-top: 40px;
 }
 
 .end-buttons-container {
@@ -272,6 +287,7 @@ main {
     background-color: rgba(240, 128, 128, 0.53);
 }   
 
+/* CSS for options displayed within containers */
 .display-review-options {
     display: flex;
     flex-direction: row;
@@ -319,6 +335,8 @@ main {
     color: red;
 }
 
+/* Media Queries */
+
 @media (max-width: 768px) {
     .start-form {
         flex-direction: column;
@@ -349,6 +367,7 @@ main {
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
         grid-gap: 10px; 
+        padding-bottom: 10px;
         
     }
     .question-form > * {

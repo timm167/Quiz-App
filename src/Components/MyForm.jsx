@@ -29,6 +29,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
             <form className='start-container'onSubmit={handleSubmit}>
                 <div className="start-form">
                     {/* Form section for user to select a topic using labeled radio inputs */}
+                    {/* Passes selection to handleSubmit through event */}
                     <div className='choose'>
                         <h3>Choose a topic</h3>
                     </div>
@@ -47,6 +48,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
                 </div>
                 <div className="start-form">
                     {/* Form section for user to select a difficulty using labeled radio inputs */}
+                    {/* Passes selection to handleSubmit through event */}
                     <div className='choose'>
                         <h3>Choose a difficulty</h3>
                     </div>

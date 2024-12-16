@@ -12,7 +12,7 @@ export default function Review({displayData}) {
                         key={i} 
                         className={`${option === question.selectedAnswer ? 'selected' : 'not-selected'} 
                         ${option === question.correctAnswer ? 'right' : 'wrong'} 
-                        ${question.options.length === 2 && 'true-false-review'} review-option`}>
+                        ${question.options.length === 2 && 'true-false-review'} review-option`}> {/* Adds class for true/false questions to make buttons larger*/}
                             {option}
                         </li>
                     ))}
