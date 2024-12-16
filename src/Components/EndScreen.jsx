@@ -23,10 +23,13 @@ export default function EndScreen({displayData}) {
     return (
         <div className="end-screen">
             <h2>You scored {score} out of 10!</h2>
-            <h3 id='end-message'>{message(score)}</h3>
+            <h4 id='end-message' className='align-text'>{message(score)}</h4>
             <div  className={!review && 'end-buttons-container'}> 
-                {review ? <Review displayData={displayData}/>: <div className='end-buttons-container'><button className="nav-button" id='end-nav-review button' onClick={() => setReview(true)}>Review answers</button>
-                <button className="nav-button" id='end-nav-play-button' onClick={() => window.location.reload()}>Play Again</button></div>}
+                {review ? <Review displayData={displayData}/>: 
+                <div className='end-buttons-container'>
+                    <button className="nav-button" id='end-nav-play-button' onClick={() => window.location.reload()}>Play Again</button>
+                    <button className="nav-button" id='end-nav-review button' onClick={() => setReview(true)}>Review answers</button>
+                </div>}
             </div>
         </div>
     )
