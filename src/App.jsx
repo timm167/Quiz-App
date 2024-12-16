@@ -60,6 +60,18 @@ function App() {
   
   return (
     <main>
+      {formResponse ?
+      <div className='form-result-displayer'>
+        <h2 className='align-text form-result-displayer-text'>Topic: {formResponse.topic}</h2>
+        <h2 className='align-text form-result-displayer-text'>Difficulty: {formResponse.difficulty}</h2>
+      </div> : 
+      <div className='instructions'>
+        <h2>Welcome to quiz master!</h2>
+        <p>You will answer 10 questions on a topic of your choosing to receive a score out of 10.</p>
+        <p>You can navigate using the <strong>'previous'</strong> and <strong>'next'</strong> buttons then finally press <strong>'submit'</strong> on the last question to see your score.</p>
+        <p>Choose a topic and difficulty to begin or press start for a random choice!</p>
+      </div>
+    }
       {currentScreen === 'home' && (
         <div>
           <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties} />
