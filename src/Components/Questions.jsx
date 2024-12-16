@@ -47,7 +47,7 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
 
     return (
         <div className="question-container">
-            <h2>{question.qNo + '. ' + question.question}</h2>
+            <h2 className='align-text'>{question.qNo + '. ' + question.question}</h2>
             <form className='question-form'>
                 {question.options.map((option, i) => (
                     <label key={i}  

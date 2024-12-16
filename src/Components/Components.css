@@ -4,6 +4,15 @@
     flex-direction: column;
 }
 
+.align-text {
+    text-align: center;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px;
+}
 /* Nav Button */
 .nav-button {
     background-color:#46827a; 
@@ -39,6 +48,9 @@
 .choose {
     width: 27%;
     margin-right: 0px;
+    height: 150px;
+    display: flex;
+    align-items: center; 
 }
 
 .choice input[type="radio"] {
@@ -205,17 +217,25 @@
 .review-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 10px;
     border-radius: 10px;
     opacity: 1;
+    width: 90%;
+    padding: 10px;
+    height: 200px;
 }
 
 #reset {
-    width: 98%;
     height: 60px;
-    margin: 10px;
+}
+
+.review-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .correct {
@@ -226,14 +246,88 @@
     background-color: rgba(240, 128, 128, 0.53);
 }   
 
+.display-review-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.review-option {
+    width: 21%;
+    display: flex;
+    padding: 8px 8px;
+    background-color: #f0f0f0;
+    color: #000000;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 40px;
+}
+
+.right {
+    box-shadow: 0px 0px 20px rgb(0, 178, 12);
+    color: rgb(0, 153, 28);
+}
+
 .right.selected {
-    color: green;
+    background-color: green;
+    color: rgb(215, 255, 218);
 }
 
 .wrong.selected {
-    color: rgb(228, 24, 88);
+    box-shadow: 0px 0px 30px rgb(255, 0, 0);
+    color: red;
 }
 
-.right.not-selected {
-    color: lightgreen;
+@media (max-width: 768px) {
+    .start-form {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .choose {
+        width: 80%;
+        justify-content: center;
+        height: 50px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+    .choice {
+        width: 80%;
+        margin: 6px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0px;
+    }
+
+    .choose > h3 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .review-container {
+        height: 220px;
+    }
+    .review-option {
+        font-size: smaller;
+    }
+    .review-container > h2 {
+        font-size: 20px
+    }
+    .question-container > h2 {
+        font-size: 20px;
+    }
 }

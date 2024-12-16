@@ -1,3 +1,8 @@
+html, body, header {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     background-color: antiquewhite;
     align-items: center;
@@ -17,6 +22,7 @@ h1 {
 img {
     width: 100px;
     height: auto;
+    margin: 20px 10px 10px 20px;
 }
 
 #root {
@@ -24,4 +30,21 @@ img {
     flex-direction: column;
     height: 100vh;
     width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    padding: 10px;
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
 }
