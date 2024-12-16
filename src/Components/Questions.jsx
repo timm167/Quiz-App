@@ -75,7 +75,7 @@ export default function Questions({questionData, quizHandler, finishQuiz}){ // C
             </div>
             {/* Provides one time reminder to select answer */}
             <div>
-                {alertShown && <p>Please select an answer.</p>}
+                {alertShown && <h4>Please select an answer.</h4>}
             </div>
         </div>
     );
