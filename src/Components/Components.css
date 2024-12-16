@@ -300,6 +300,10 @@ main {
     height: 40px;
 }
 
+.true-false-review {
+    width: 40%;
+}
+
 .right {
     box-shadow: 0px 0px 20px rgb(0, 178, 12);
     color: rgb(0, 153, 28);

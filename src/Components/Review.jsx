@@ -11,7 +11,8 @@ export default function Review({displayData}) {
                         <li 
                         key={i} 
                         className={`${option === question.selectedAnswer ? 'selected' : 'not-selected'} 
-                        ${option === question.correctAnswer ? 'right' : 'wrong'} review-option`}>
+                        ${option === question.correctAnswer ? 'right' : 'wrong'} 
+                        ${question.options.length === 2 && 'true-false-review'} review-option`}>
                             {option}
                         </li>
                     ))}
