@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import MyForm from './Components/MyForm'
 import Questions from './Components/Questions'
 import createQuizData from './utils/Quiz'
@@ -62,7 +61,7 @@ function App() {
   return (
     <main>
       {currentScreen === 'home' && (
-        <div id="selection-screen">
+        <div>
           <MyForm formSubmit={handleFormSubmit} topics={topics} difficulties={difficulties} />
         </div>
       )}

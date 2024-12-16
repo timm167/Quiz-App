@@ -29,32 +29,36 @@ export default function MyForm({formSubmit, topics, difficulties}) {
             <form className='start-container'onSubmit={handleSubmit}>
                 <div className="start-form">
                     {/* Form section for user to select a topic using labeled radio inputs */}
-                    <h3>Choose a topic</h3>
-                    <label>
+                    <div className='choose'>
+                        <h3>Choose a topic</h3>
+                    </div>
+                    <label className='choice'>
                         <input type="radio" name="topic-radio" value={topics[0]}/>
                             {topics[0]}
                     </label>
-                    <label>
+                    <label className='choice'>
                         <input type="radio" name="topic-radio" value={topics[1]}/>
                             {topics[1]}
                     </label>
-                    <label>
+                    <label className='choice'>
                         <input type="radio" name="topic-radio" value={topics[2]}/>
                             {topics[2]}
                     </label>
                 </div>
                 <div className="start-form">
                     {/* Form section for user to select a difficulty using labeled radio inputs */}
-                    <h3>Choose a difficulty</h3>
-                        <label>
+                    <div className='choose'>
+                        <h3>Choose a difficulty</h3>
+                    </div>
+                        <label className='choice'>
                             <input type="radio" name="difficulty-radio" value={difficulties[0]}/>
                                 {difficulties[0]}
                         </label>
-                        <label>
+                        <label className='choice'>
                             <input type="radio" name="difficulty-radio" value={difficulties[1]}/>
                                 {difficulties[1]}
                         </label>
-                        <label>
+                        <label className='choice'>
                             <input type="radio" name="difficulty-radio" value={difficulties[2]}/>
                                 {difficulties[2]}
                         </label>
