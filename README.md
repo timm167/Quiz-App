@@ -5,6 +5,9 @@ Quiz App is a web application that allows users to test their knowledge on vario
 
 The questions are from OPENTDB API
 
+### Link
+Access at: https://timm167.github.io/Quiz-App/
+
 ## Tech Stack
 
 ### Languages
