@@ -21,9 +21,27 @@ The questions are from OPENTDB API
 - OPENTDB
 
 ## Project Structure
-
-quiz-app/ ├── eslint.config.js ├── index.html ├── package.json ├── README.md ├── src/ │ ├── App.jsx │ ├── assets/ │ ├── Components/ │ │ ├── Components.css │ │ ├── EndScreen.jsx │ │ ├── MyForm.jsx │ │ ├── Questions.jsx │ │ ├── Review.jsx │ ├── index.css │ ├── main.jsx │ ├── utils/ │ │ └── Quiz.js ├── vite.config.js
-
+```plaintext
+quiz-app/
+├── eslint.config.js
+├── index.html
+├── package.json
+├── README.md
+├── src/
+│   ├── App.jsx
+│   ├── assets/
+│   ├── Components/
+│   │   ├── Components.css
+│   │   ├── EndScreen.jsx
+│   │   ├── MyForm.jsx
+│   │   ├── Questions.jsx
+│   │   ├── Review.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   ├── utils/
+│   │   └── Quiz.js
+├── vite.config.js
+```
 
 ## Components
 
