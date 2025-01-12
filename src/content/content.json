@@ -1,0 +1,12 @@
+{
+    "siteName": "Quiz Master",
+    "subTitle": "Test your knowledge",
+    "topic1": "Sports",
+    "topic2": "Celebrities",
+    "topic3": "Animals",
+    "numberOfQuestions": 10,
+    "start": "Start",
+    "next": "Next",
+    "finish": "Finish",
+    "previous": "Previous"
+}

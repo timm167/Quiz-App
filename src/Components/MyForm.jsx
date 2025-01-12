@@ -1,17 +1,7 @@
 import React from 'react';
-import {topics, difficulties} from '../App'
 import './Components.css'
-
-// generates a random topic if none is selected
-function backupTopic() {
-    return topics[Math.floor(Math.random()*topics.length)] // returns a random topic
-  }
-  
-// generates a random difficulty if none is selected
-function backupDifficulty() {
-    return difficulties[Math.floor(Math.random()*difficulties.length)] // returns a random difficulty
-  } 
-
+import {backupTopic, backupDifficulty} from '../utils/backup'
+import {start} from '../content/content.json'
 
 export default function MyForm({formSubmit, topics, difficulties}) {
 
@@ -65,7 +55,7 @@ export default function MyForm({formSubmit, topics, difficulties}) {
                                 {difficulties[2]}
                         </label>
                 </div>
-                <button className='nav-button start-game' type="submit">Start Quiz</button>
+                <button className='nav-button start-game' type="submit">{start} Quiz</button>
             </form>
         </div>
     )

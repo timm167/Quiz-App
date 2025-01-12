@@ -1,0 +1,122 @@
+
+    {
+        "response_code": 0,
+        "results": [
+            {
+                "type": "boolean",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "In Rugby League, performing a &quot;40-20&quot; is punished by a free kick for the opposing team.",
+                "correct_answer": "False",
+                "incorrect_answers": [
+                    "True"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Which driver has been the Formula 1 world champion for a record 7 times?",
+                "correct_answer": "Michael Schumacher",
+                "incorrect_answers": [
+                    "Ayrton Senna",
+                    "Fernando Alonso",
+                    "Jim Clark"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Which team won 2014 FIFA World Cup in Brazil?",
+                "correct_answer": "Germany",
+                "incorrect_answers": [
+                    "Argentina",
+                    "Brazil",
+                    "Netherlands"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Which two teams played in Super Bowl XLII?",
+                "correct_answer": "The New York Giants &amp; The New England Patriots",
+                "incorrect_answers": [
+                    "The Green Bay Packers &amp; The Pittsburgh Steelers",
+                    "The Philadelphia Eagles &amp; The New England Patriots",
+                    "The Seattle Seahawks &amp; The Denver Broncos"
+                ]
+            },
+            {
+                "type": "boolean",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Peyton Manning retired after winning Super Bowl XLIX.",
+                "correct_answer": "False",
+                "incorrect_answers": [
+                    "True"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "What is the name of Manchester United&#039;s home stadium?",
+                "correct_answer": "Old Trafford",
+                "incorrect_answers": [
+                    "Anfield",
+                    "City of Manchester Stadium",
+                    "St James Park"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "In bowling, what is the term used for getting three consecutive strikes?",
+                "correct_answer": "Turkey",
+                "incorrect_answers": [
+                    "Flamingo",
+                    "Birdie",
+                    "Eagle"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Who is often called &quot;the Maestro&quot; in the men&#039;s tennis circuit?",
+                "correct_answer": "Roger Federer",
+                "incorrect_answers": [
+                    "Bill Tilden",
+                    "Boris Becker",
+                    "Pete Sampras"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Which team won the 2015-16 English Premier League?",
+                "correct_answer": "Leicester City",
+                "incorrect_answers": [
+                    "Liverpool",
+                    "Cheslea",
+                    "Manchester United"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Sports",
+                "question": "Who won the premier league title in the 2015-2016 season following a fairy tale run?",
+                "correct_answer": "Leicester City",
+                "incorrect_answers": [
+                    "Tottenham Hotspur",
+                    "Watford",
+                    "Stoke City"
+                ]
+            }
+        ]
+    }
