@@ -35,14 +35,27 @@ quiz-app/
 │   ├── assets/
 │   ├── Components/
 │   │   ├── Components.css
+│   │   ├── Topic.jsx
+│   │   ├── Welcome.jsx
 │   │   ├── EndScreen.jsx
 │   │   ├── MyForm.jsx
 │   │   ├── Questions.jsx
 │   │   ├── Review.jsx
+│   ├── content/
+│   │   ├── backupData.json
+│   │   ├── config.json
+│   │   ├── content.json
+│   │   ├── loadContent.js
+│   │   ├── magicReplace.json
 │   ├── index.css
 │   ├── main.jsx
 │   ├── utils/
-│   │   └── Quiz.js
+│   │   ├── backup.js
+│   │   ├── convertText.js
+│   │   ├── createQuizData.js
+│   │   ├── endMessage.js
+│   │   ├── fetchQuiz.js
+│   │   ├── handleNav.js
 ├── vite.config.js
 ```
 
@@ -57,9 +70,24 @@ The main component that manages the state and renders other components based on 
 - **`Questions.jsx`**: Renders the quiz questions and handles navigation between them.
 - **`EndScreen.jsx`**: Displays the final score and provides options to review answers or play again.
 - **`Review.jsx`**: Displays a review of the answers after the quiz is completed.
+- **`Topic.jsx`**: Displays the difficulty and topic
+- **`Welcome.jsx`**: Displays the instructions for the game
 
 ### `utils/`
-- **`Quiz.js`**: Contains utility functions for creating quiz data.
+- **`backup.js`**: Contains utility functions for picking a random category.
+- **`convertText.js`**: Contains utility function for editing the text data received from the API.
+- **`createQuizData.js`**: Contains utility functions for creating quiz data.
+- **`endMessage.js`**: Contains utility functions for selecting end message.
+- **`fetchQuiz.js`**: Contains utility functions for fetching from API.
+- **`handleNav.js`**: Contains utility functions for navigating quiz.
+
+
+### `content/`
+- **`backupData.json`**: Contains backup data in case of failed API call
+- **`config.json`**: Contains base URL
+- **`content.json`**: Contains content like title, nav names, etc 
+- **`loadContent.js`**: Sends function to send to index.HTML
+- **`magicReplace.json`**: Replaces magic numbers
 
 ### Externally Written Code
 - The HTML boilerplate in index.html is from Vite.
